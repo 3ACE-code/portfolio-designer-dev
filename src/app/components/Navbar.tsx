@@ -119,11 +119,7 @@ export function Navbar() {
               : "bg-gradient-to-r from-transparent via-zinc-900/20 to-transparent"
         }`}
       />
-" className="text-base font-medium flex items-center space-x-2 hover:text-[#00F0FF] transition-colors" onClick={closeMenu}>
-            <Home size={18} />
-            <span>Strona główna</span>
-          </Link>
-          <Link to="/
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div
@@ -131,6 +127,14 @@ export function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-zinc-900 shadow-lg py-4 px-6 flex flex-col space-y-4"
         >
+          <Link
+            to="/"
+            className="text-base font-medium flex items-center space-x-2 hover:text-[#00F0FF] transition-colors"
+            onClick={closeMenu}
+          >
+            <Home size={18} />
+            <span>Strona główna</span>
+          </Link>
           <Link to="/portfolio" className="text-base font-medium" onClick={closeMenu}>
             Portfolio
           </Link>
