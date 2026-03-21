@@ -5,7 +5,7 @@ import { Linkedin, Disc as Behance } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-black py-12 border-t border-zinc-900 text-zinc-500">
-      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
+      <div className="container mx-auto px-5 md:px-10 xl:px-12 flex flex-col gap-6 md:flex-row md:gap-8 items-center justify-between">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="flex space-x-6"
+          className="flex flex-wrap justify-center gap-4 sm:gap-6"
         >
           <a 
             href="#" 

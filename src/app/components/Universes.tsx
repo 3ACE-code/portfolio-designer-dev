@@ -1,9 +1,11 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ShoppingBag, Gamepad2, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
 export function Universes() {
+  const shouldReduceMotion = useReducedMotion();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -20,23 +22,23 @@ export function Universes() {
   };
 
   return (
-    <section id="universes" className="py-24 bg-zinc-50 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section id="universes" className="py-20 sm:py-24 bg-zinc-50 relative overflow-hidden">
+      <div className="container mx-auto px-5 md:px-10 xl:px-12">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.h2 
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: -20 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-4xl md:text-5xl font-bold mb-4 text-zinc-900"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-zinc-900"
           >
             Wybierz swoje <span className="text-[#00F0FF]">uniwersum</span>
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-zinc-600"
+            transition={shouldReduceMotion ? undefined : { delay: 0.2 }}
+            className="text-base sm:text-lg text-zinc-600 leading-relaxed"
           >
             Specjalizuję się w trzech kluczowych obszarach cyfrowej przyszłości. Wybierz jeden, aby zobaczyć prototyp.
           </motion.p>
@@ -44,10 +46,10 @@ export function Universes() {
 
         <motion.div 
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView={shouldReduceMotion ? undefined : "visible"}
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
         >
           {/* Card 1: E-COMMERCE */}
           <motion.div variants={itemVariants} className="h-full">

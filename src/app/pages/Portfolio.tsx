@@ -1,9 +1,11 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, ShoppingBag, Gamepad2, Cpu } from "lucide-react";
 import { Link } from "react-router";
 
 export function Portfolio() {
+  const shouldReduceMotion = useReducedMotion();
+
   const projects = [
     {
       id: "ecommerce",
@@ -48,37 +50,37 @@ export function Portfolio() {
   ];
 
   return (
-    <section className="pt-32 pb-24 min-h-screen bg-white font-sans selection:bg-[#00F0FF] selection:text-black">
-      <div className="container mx-auto px-6 md:px-12">
+    <section className="pt-28 sm:pt-32 pb-20 sm:pb-24 min-h-screen bg-white font-sans selection:bg-[#00F0FF] selection:text-black">
+      <div className="container mx-auto px-5 md:px-10 xl:px-12">
         {/* Header */}
-        <div className="max-w-3xl mb-20">
+        <div className="max-w-3xl mb-14 sm:mb-20">
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-zinc-900 tracking-tight"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-zinc-900 tracking-tight"
           >
             Wybrane <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-[#00F0FF]">Projekty</span>
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-zinc-600"
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1 }}
+            transition={shouldReduceMotion ? undefined : { delay: 0.2 }}
+            className="text-base sm:text-lg text-zinc-600 leading-relaxed"
           >
             Poniżej znajduje się zestawienie trzech zróżnicowanych ekosystemów cyfrowych. Od e-commerce, przez gaming, aż po zaawansowane narzędzia analityczne. Poznaj moje kompetencje architektoniczne na żywych organizmach.
           </motion.p>
         </div>
 
         {/* Project List */}
-        <div className="space-y-32">
+        <div className="space-y-18 sm:space-y-24 lg:space-y-32">
           {projects.map((project, index) => (
             <motion.div 
               id={project.id}
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 50 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={shouldReduceMotion ? undefined : { duration: 0.8 }}
               className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
               {/* Image side */}
@@ -88,10 +90,13 @@ export function Portfolio() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                   
                   <motion.img 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
+                    transition={shouldReduceMotion ? undefined : { duration: 0.7, ease: "easeOut" }}
                     src={project.image} 
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="w-full aspect-[4/3] object-cover object-center bg-zinc-100"
                   />
                   

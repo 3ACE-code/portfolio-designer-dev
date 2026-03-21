@@ -22,7 +22,7 @@ export function Root() {
   return (
     <>
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />

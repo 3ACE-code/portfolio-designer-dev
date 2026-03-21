@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Send, Mail, User, MessageSquare } from "lucide-react";
 import { toast } from "sonner";
 
@@ -13,6 +13,7 @@ export function Contact() {
   const [isSending, setIsSending] = React.useState(false);
   const toastId = "contact-form-status";
   const discordWebhookUrl = String(import.meta.env.VITE_DISCORD_WEBHOOK_URL || "").trim();
+  const shouldReduceMotion = useReducedMotion();
 
   const notifyDiscordWebhook = async ({ name, email, message }: DiscordPayload) => {
     if (!discordWebhookUrl) {
@@ -115,24 +116,24 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-zinc-950 text-white relative overflow-hidden">
+    <section id="contact" className="py-20 sm:py-24 bg-zinc-950 text-white relative overflow-hidden">
       {/* Decorative gradient blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00F0FF]/10 blur-[120px] rounded-full pointer-events-none"></div>
       
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+      <div className="container mx-auto px-5 md:px-10 xl:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Text Content */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, x: -50 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={shouldReduceMotion ? undefined : { duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
               Designer <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-purple-400">nowej ery</span>
             </h2>
-            <p className="text-zinc-400 text-lg mb-8 max-w-md leading-relaxed">
+            <p className="text-zinc-400 text-base sm:text-lg mb-8 max-w-md leading-relaxed">
               Łączę estetykę z najnowszymi technologiami, aby dostarczać projekty z prędkością światła. Błyskawiczna jakość bez kompromisów.
             </p>
             
@@ -151,11 +152,11 @@ export function Contact() {
 
           {/* Contact Form */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-zinc-900/50 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden"
+            transition={shouldReduceMotion ? undefined : { duration: 0.6, delay: 0.2 }}
+            className="bg-zinc-900/50 backdrop-blur-md p-6 sm:p-8 md:p-12 rounded-3xl border border-zinc-800 shadow-2xl relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#00F0FF]/20 blur-[50px] rounded-full"></div>
             
@@ -167,6 +168,7 @@ export function Contact() {
                   <input 
                     name="name"
                     type="text" 
+                    autoComplete="name"
                     placeholder="Jan Kowalski"
                     required
                     className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700"
@@ -181,6 +183,8 @@ export function Contact() {
                   <input 
                     name="email"
                     type="email" 
+                    autoComplete="email"
+                    inputMode="email"
                     placeholder="jan@example.com"
                     required
                     className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700"
@@ -195,9 +199,10 @@ export function Contact() {
                   <textarea 
                     name="message"
                     rows={4}
+                    autoComplete="off"
                     placeholder="Opowiedz mi o swoim projekcie..."
                     required
-                    className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700 resize-none"
+                    className="w-full min-h-32 bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700 resize-y"
                   ></textarea>
                 </div>
               </div>
