@@ -54,6 +54,9 @@ export function Universes() {
           {/* Card 1: E-COMMERCE */}
           <motion.div variants={itemVariants} className="h-full">
             <Link to="/portfolio#ecommerce" className="group block relative bg-white rounded-3xl p-8 border border-zinc-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] transition-all duration-500 overflow-hidden flex flex-col h-full backdrop-blur-sm bg-white/60">
+              {/* Bottom accent bar */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-zinc-300 via-zinc-400 to-zinc-300 transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+              
               <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                 <ShoppingBag size={120} />
               </div>
@@ -80,6 +83,9 @@ export function Universes() {
           {/* Card 2: GAMING UI/UX */}
           <motion.div variants={itemVariants} className="h-full">
             <Link to="/portfolio#gaming" className="group block relative bg-[#09090b] text-white rounded-3xl p-8 border border-zinc-800 shadow-[0_4px_30px_rgba(0,240,255,0.05)] hover:shadow-[0_0_40px_rgba(0,240,255,0.15)] transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+              {/* Bottom accent bar with neon glow */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-[#00F0FF] to-cyan-400 transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+              
               {/* Dark mode & neon vibes */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 blur-[80px] rounded-full -mr-20 -mt-20 pointer-events-none group-hover:bg-[#00F0FF]/20 transition-colors duration-700"></div>
               
