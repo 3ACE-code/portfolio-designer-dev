@@ -1,0 +1,147 @@
+import React from "react";
+import { motion } from "motion/react";
+import { Component, Code2, Settings2, MousePointer2 } from "lucide-react";
+
+export function About() {
+  const techStack = [
+    {
+      icon: <Component className="text-[#00F0FF]" size={22} />,
+      title: "Systemy Projektowe",
+      desc: "Skalowalne biblioteki komponentów i spójność wizualna (Design Systems)."
+    },
+    {
+      icon: <Code2 className="text-[#00F0FF]" size={22} />,
+      title: "Architektura Frontend",
+      desc: "Czysty, nowoczesny kod w oparciu o React i Next.js."
+    },
+    {
+      icon: <Settings2 className="text-[#00F0FF]" size={22} />,
+      title: "Optymalizacja Procesów",
+      desc: "Skrócony czas wdrożenia dzięki automatyzacji i precyzyjnemu planowaniu."
+    },
+    {
+      icon: <MousePointer2 className="text-[#00F0FF]" size={22} />,
+      title: "User Experience",
+      desc: "Zaawansowane interakcje, które prowadzą użytkownika prosto do celu."
+    }
+  ];
+
+  return (
+    <section className="bg-white min-h-screen flex items-center pt-32 pb-24 overflow-hidden selection:bg-[#00F0FF] selection:text-black">
+      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-7xl">
+        
+        {/* LEFT COLUMN (The Expertise) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col z-10"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zinc-900 mb-8 leading-[1.1] tracking-tight">
+            Precyzja designu.<br />
+            <span className="text-[#00F0FF]">Wydajność kodu.</span>
+          </h2>
+          
+          <div className="space-y-6 text-lg text-zinc-600 mb-12 leading-relaxed max-w-2xl font-light">
+            <p>
+              Specjalizuję się w dostarczaniu kompleksowych rozwiązań cyfrowych, gdzie granica między estetyką a technologią zaciera się. Moje podejście opiera się na zaawansowanej optymalizacji workflow oraz wykorzystaniu najnowocześniejszych narzędzi wspomagających proces twórczy.
+            </p>
+            <p>
+              Dzięki integracji Figmy z ekosystemem Visual Studio Code, tworzę produkty, które są natychmiast gotowe do skalowania. Każdy piksel ma swoje uzasadnienie, a każda linia kodu jest pisana z myślą o wydajności i przyszłym rozwoju Twojego biznesu. Nie dostarczam tylko stron – buduję cyfrowe fundamenty.
+            </p>
+          </div>
+
+          {/* Tech Stack Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {techStack.map((item, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
+                className="bg-white/80 backdrop-blur-md border border-zinc-100 rounded-2xl p-6 shadow-[0_4px_20px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,240,255,0.08)] hover:border-[#00F0FF]/30 transition-all duration-500 group relative"
+              >
+                <div className="w-12 h-12 rounded-xl bg-zinc-50 flex items-center justify-center border border-zinc-100 mb-5 group-hover:scale-110 transition-transform duration-500">
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-zinc-900 text-base mb-2">{item.title}</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* RIGHT COLUMN (Visuals - Digital Architecture) */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="relative w-full aspect-square flex items-center justify-center bg-white"
+        >
+          {/* Subtle Tech Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#f4f4f5_1px,transparent_1px),linear-gradient(to_bottom,#f4f4f5_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
+
+          {/* Floating Geometric Nodes & Lines */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            {/* Top Left Node */}
+            <motion.div 
+              animate={{ y: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-[15%] left-[15%] flex items-center space-x-2"
+            >
+              <div className="w-2 h-2 rounded-full bg-[#00F0FF] shadow-[0_0_10px_#00F0FF]"></div>
+              <div className="h-[1px] w-16 bg-gradient-to-r from-[#00F0FF]/50 to-transparent"></div>
+              <span className="text-[10px] font-mono text-zinc-400 tracking-wider">SYS.01</span>
+            </motion.div>
+
+            {/* Bottom Right Node */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-[20%] right-[10%] flex items-center space-x-2 flex-row-reverse space-x-reverse"
+            >
+              <div className="w-2 h-2 rounded-full border border-zinc-300 bg-white"></div>
+              <div className="h-[1px] w-24 bg-gradient-to-l from-zinc-200 to-transparent"></div>
+              <span className="text-[10px] font-mono text-zinc-400 tracking-wider">NET_LINK</span>
+            </motion.div>
+
+            {/* Top Right Floating Element */}
+            <motion.div 
+              animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute top-[25%] right-[20%] w-12 h-12 border border-zinc-100 rounded-full border-dashed flex items-center justify-center"
+            >
+              <div className="w-1 h-1 bg-zinc-200 rounded-full"></div>
+            </motion.div>
+
+            {/* Vertical Tech Line */}
+            <div className="absolute top-[10%] bottom-[10%] left-[50%] w-[1px] bg-gradient-to-b from-transparent via-zinc-100 to-transparent -z-10"></div>
+            <div className="absolute top-[50%] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-zinc-100 to-transparent -z-10"></div>
+          </div>
+
+          {/* Animated Fluid Sphere */}
+          <motion.div
+            animate={{ 
+              y: [0, -20, 0],
+              rotate: [0, 5, -2, 0]
+            }}
+            transition={{ 
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="relative w-[75%] max-w-[400px] aspect-square flex items-center justify-center z-10"
+          >
+            {/* The Fluid Sphere Image from Unsplash */}
+            <img 
+              src="https://images.unsplash.com/photo-1719955090857-1cf1a078ba2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpcmlkZXNjZW50JTIwM2QlMjBmbHVpZCUyMHNwaGVyZSUyMGNocm9tZXxlbnwxfHx8fDE3NzQxMjQ1OTN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Digital Architecture Core"
+              className="w-full h-full object-cover mix-blend-darken rounded-full scale-110 drop-shadow-2xl grayscale-[0.1] contrast-[1.15]"
+              style={{
+                filter: "drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.08))"
+              }}
+            />
+          </motion.div>
+        </motion.div>
+        
+      </div>
+    </section>
+  );
+}
