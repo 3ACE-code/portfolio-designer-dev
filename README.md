@@ -55,4 +55,18 @@ Masz wizję, która potrzebuje nowoczesnej oprawy?
 - **Portfolio:** [designer-dev.vercel.app](https://designer-dev.vercel.app)
 
 ---
+
+## ⚖️ Prawa autorskie i wykorzystanie
+
+To repozytorium jest publiczne wyłącznie jako portfolio i dowód autorstwa.
+
+- Kod, układ projektu, treści i warstwa wizualna są objęte prawami autorskimi.
+- Brak zgody na kopiowanie, modyfikację i publikację pochodnych realizacji bez pisemnej zgody.
+- Szczegółowe zasady znajdują się w pliku LICENSE.
+
+Weryfikacja autorstwa:
+- Historia commitów GitHub pokazuje chronologię tworzenia projektu.
+- Publiczny deployment i kolejne wersje stanowią dodatkowy ślad prac projektowo-wdrożeniowych.
+
+---
 *Created with precision by Designer-Dev*
