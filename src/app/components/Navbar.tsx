@@ -9,8 +9,9 @@ export function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const isGamingRoute = location.pathname === "/universe/gaming";
-  const hasSolidNav = isScrolled || isMobileMenuOpen;
-  const isLightOnDark = isGamingRoute && !hasSolidNav;
+  const isAboutRoute = location.pathname === "/about";
+  const hasSolidNav = isScrolled || isMobileMenuOpen || isAboutRoute;
+  const isLightOnDark = (isGamingRoute || isAboutRoute) && !hasSolidNav;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +55,9 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        hasSolidNav
+        isAboutRoute && hasSolidNav
+          ? "bg-zinc-900/60 backdrop-blur-md border-b border-zinc-700/40 py-4"
+          : hasSolidNav
           ? "bg-white/90 backdrop-blur-md shadow-sm dark:bg-black/90 py-4"
           : "bg-transparent py-6"
       }`}
@@ -63,7 +66,7 @@ export function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className={`text-xl md:text-2xl font-bold tracking-tighter transition-colors ${isLightOnDark ? "text-white" : "text-black dark:text-white"}`}
+          className={`text-xl md:text-2xl font-bold tracking-tighter transition-colors ${isAboutRoute ? "text-white" : isLightOnDark ? "text-white" : "text-black dark:text-white"}`}
           onClick={closeMenu}
         >
           DESIGNER<span className="text-[#00F0FF]">-</span>DEV
@@ -73,19 +76,19 @@ export function Navbar() {
         <div className="hidden md:flex items-center space-x-8">
           <Link
             to="/portfolio"
-            className={`text-sm font-medium hover:text-[#00F0FF] transition-colors ${isLightOnDark ? "text-zinc-100" : "text-zinc-900 dark:text-zinc-100"}`}
+            className={`text-sm font-medium hover:text-[#00F0FF] transition-colors ${isAboutRoute ? "text-white" : isLightOnDark ? "text-zinc-100" : "text-zinc-900 dark:text-zinc-100"}`}
           >
             Portfolio
           </Link>
           <Link
             to="/about"
-            className={`text-sm font-medium hover:text-[#00F0FF] transition-colors ${isLightOnDark ? "text-zinc-100" : "text-zinc-900 dark:text-zinc-100"}`}
+            className={`text-sm font-medium hover:text-[#00F0FF] transition-colors ${isAboutRoute ? "text-white" : isLightOnDark ? "text-zinc-100" : "text-zinc-900 dark:text-zinc-100"}`}
           >
             O mnie
           </Link>
           <Link
             to="/"
-            className={`p-2 rounded-full hover:bg-[#00F0FF]/10 transition-colors ${isLightOnDark ? "text-zinc-100" : "text-zinc-900 dark:text-zinc-100"}`}
+            className={`p-2 rounded-full hover:bg-[#00F0FF]/30 hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] transition-all duration-300 ${isAboutRoute ? "text-white" : isLightOnDark ? "text-zinc-100" : "text-zinc-900 dark:text-zinc-100"}`}
             title="Strona główna"
             onClick={closeMenu}
           >
@@ -102,7 +105,7 @@ export function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden transition-colors ${isLightOnDark ? "text-white" : "text-black dark:text-white"}`}
+          className={`md:hidden transition-colors ${isAboutRoute ? "text-white" : isLightOnDark ? "text-white" : "text-black dark:text-white"}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
