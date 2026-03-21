@@ -16,7 +16,11 @@ export function Universes() {
       link: "/portfolio#ecommerce",
       border: "border-[#f3e7c0]/35",
       glow: "shadow-[0_0_0_1px_rgba(243,231,192,0.28),0_18px_48px_rgba(201,167,89,0.22)]",
-      button: "from-[#f3e7c0] to-white text-zinc-900",
+      hoverGlow:
+        "hover:shadow-[0_0_0_1px_rgba(243,231,192,0.42),0_28px_72px_rgba(201,167,89,0.31)]",
+      buttonText: "text-[#f3e7c0]",
+      buttonFill:
+        "group-hover:from-[#f3e7c0] group-hover:to-white group-hover:text-zinc-900",
       iconGlow: "text-[#f3e7c0]",
       stripe: "from-[#f3e7c0]/20 via-white/70 to-[#f3e7c0]/20",
     },
@@ -29,7 +33,11 @@ export function Universes() {
       link: "/portfolio#gaming",
       border: "border-[#8b5cf6]/35",
       glow: "shadow-[0_0_0_1px_rgba(139,92,246,0.3),0_18px_52px_rgba(34,211,238,0.24)]",
-      button: "from-[#8b5cf6] to-[#22d3ee] text-white",
+      hoverGlow:
+        "hover:shadow-[0_0_0_1px_rgba(139,92,246,0.42),0_30px_76px_rgba(34,211,238,0.34)]",
+      buttonText: "text-[#c4b5fd]",
+      buttonFill:
+        "group-hover:from-[#8b5cf6] group-hover:to-[#22d3ee] group-hover:text-white",
       iconGlow: "text-[#c4b5fd]",
       stripe: "from-[#8b5cf6]/30 via-[#22d3ee]/80 to-[#8b5cf6]/30",
     },
@@ -42,9 +50,46 @@ export function Universes() {
       link: "/portfolio#startup",
       border: "border-[#3b82f6]/35",
       glow: "shadow-[0_0_0_1px_rgba(59,130,246,0.3),0_18px_52px_rgba(59,130,246,0.24)]",
-      button: "from-[#60a5fa] to-[#2563eb] text-white",
+      hoverGlow:
+        "hover:shadow-[0_0_0_1px_rgba(59,130,246,0.42),0_30px_76px_rgba(59,130,246,0.34)]",
+      buttonText: "text-[#60a5fa]",
+      buttonFill:
+        "group-hover:from-[#60a5fa] group-hover:to-[#2563eb] group-hover:text-white",
       iconGlow: "text-[#60a5fa]",
       stripe: "from-[#60a5fa]/30 via-[#2563eb]/80 to-[#60a5fa]/30",
+    },
+  ];
+
+  const trustLogos = [
+    {
+      name: "Figma",
+      src: "https://cdn.simpleicons.org/figma/FFFFFF",
+      alt: "Figma",
+    },
+    {
+      name: "React",
+      src: "https://cdn.simpleicons.org/react/FFFFFF",
+      alt: "React",
+    },
+    {
+      name: "Next.js",
+      src: "https://cdn.simpleicons.org/nextdotjs/FFFFFF",
+      alt: "Next.js",
+    },
+    {
+      name: "Tailwind CSS",
+      src: "https://cdn.simpleicons.org/tailwindcss/FFFFFF",
+      alt: "Tailwind CSS",
+    },
+    {
+      name: "Vercel",
+      src: "https://cdn.simpleicons.org/vercel/FFFFFF",
+      alt: "Vercel",
+    },
+    {
+      name: "TypeScript",
+      src: "https://cdn.simpleicons.org/typescript/FFFFFF",
+      alt: "TypeScript",
     },
   ];
 
@@ -106,7 +151,7 @@ export function Universes() {
               <motion.div key={card.id} variants={itemVariants} className="h-full">
                 <Link
                   to={card.link}
-                  className={`group relative flex h-full min-h-[470px] flex-col overflow-hidden rounded-[30px] border bg-zinc-900/45 p-8 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 ${card.border} ${card.glow}`}
+                  className={`group relative flex h-full min-h-[470px] flex-col overflow-hidden rounded-[30px] border bg-zinc-900/45 p-8 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:scale-[1.05] hover:backdrop-blur-3xl ${card.border} ${card.glow} ${card.hoverGlow}`}
                 >
                   <div
                     className={`absolute inset-x-8 top-0 h-px bg-gradient-to-r opacity-80 ${card.stripe}`}
@@ -134,7 +179,7 @@ export function Universes() {
                   </div>
 
                   <span
-                    className={`mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r px-6 py-3 text-sm font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:translate-x-1 ${card.button}`}
+                    className={`mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-transparent px-6 py-3 text-sm font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-300 group-hover:translate-x-1 group-hover:border-transparent group-hover:bg-gradient-to-r group-hover:shadow-[0_14px_36px_rgba(0,0,0,0.45)] ${card.buttonText} ${card.buttonFill}`}
                   >
                     Eksploruj
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -144,6 +189,54 @@ export function Universes() {
             );
           })}
         </motion.div>
+
+        <div className="mx-auto mt-20 max-w-6xl rounded-3xl border border-white/10 bg-zinc-900/40 px-6 py-8 backdrop-blur-xl sm:px-10">
+          <p className="mb-7 text-center text-sm font-medium tracking-[0.18em] text-zinc-400 uppercase">
+            Technologie napędzające Twoją wizję:
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-12">
+            {trustLogos.map((logo) => (
+              <div
+                key={logo.name}
+                className="flex items-center gap-3 opacity-40 transition-opacity duration-300 hover:opacity-70"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-6 w-6 object-contain"
+                />
+                <span className="text-xs font-semibold tracking-[0.16em] text-zinc-300 uppercase">
+                  {logo.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <footer className="mx-auto mt-24 max-w-5xl py-20 text-center">
+          <h3 className="text-3xl font-extrabold leading-tight tracking-[-0.02em] text-white sm:text-4xl md:text-5xl">
+            Twoja wizja zasługuje na najlepszy kod.
+          </h3>
+
+          <a
+            href="/#contact"
+            className="mx-auto mt-10 inline-flex items-center justify-center rounded-full bg-[#00F0FF] px-10 py-4 text-base font-bold text-zinc-950 shadow-[0_0_0_1px_rgba(0,240,255,0.5),0_0_48px_rgba(0,240,255,0.45)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_0_1px_rgba(0,240,255,0.65),0_0_64px_rgba(0,240,255,0.6)]"
+          >
+            Napisz do mnie
+          </a>
+
+          <p className="mt-8 text-sm text-zinc-400">hello@designer-dev.com</p>
+          <div className="mt-4 flex items-center justify-center gap-8 text-xs tracking-[0.16em] uppercase text-zinc-500">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">
+              LinkedIn
+            </a>
+            <a href="https://discord.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">
+              Discord
+            </a>
+          </div>
+        </footer>
       </div>
     </section>
   );
