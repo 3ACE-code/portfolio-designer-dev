@@ -51,7 +51,7 @@ export function StartupPrototype() {
               <div className={`w-8 h-8 rounded-lg ${activeColor.bg} flex items-center justify-center text-white`}>
                 <Sparkles size={18} />
               </div>
-              <span>DataNova.ai</span>
+              <span>DataNova One</span>
             </div>
 
             <nav className="space-y-2 flex-grow">
@@ -69,7 +69,7 @@ export function StartupPrototype() {
               </a>
               <a href="#" className="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 hover:text-slate-900 transition-colors">
                 <MessageSquare size={20} />
-                <span>Wiadomości AI</span>
+                <span>Wiadomości systemowe</span>
               </a>
             </nav>
 
@@ -110,7 +110,7 @@ export function StartupPrototype() {
               <div className="flex justify-between items-end mb-8">
                 <div>
                   <h1 className="text-2xl font-bold text-slate-900">Przegląd systemu</h1>
-                  <p className="text-slate-500 mt-1">Oto podsumowanie twoich danych wygenerowanych przez AI.</p>
+                  <p className="text-slate-500 mt-1">Oto podsumowanie twoich danych wygenerowane przez system analityczny.</p>
                 </div>
                 <button className={`hidden md:flex items-center space-x-2 px-4 py-2 ${activeColor.bg} text-white rounded-lg text-sm font-medium shadow-sm hover:opacity-90 transition-opacity`}>
                   <Plus size={16} />
@@ -138,7 +138,7 @@ export function StartupPrototype() {
               {/* Chat / Graph area */}
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-bold text-slate-900">Asystent Danych</h3>
+                  <h3 className="font-bold text-slate-900">Centrum Analiz</h3>
                   <button className={`text-sm font-medium ${activeColor.text}`}>Wyczyść historię</button>
                 </div>
                 
@@ -166,7 +166,7 @@ export function StartupPrototype() {
                 <div className="relative">
                   <input 
                     type="text" 
-                    placeholder="Zapytaj AI o swoje dane..." 
+                    placeholder="Zadaj pytanie o swoje dane..." 
                     className="w-full pl-4 pr-12 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-slate-300 shadow-sm"
                   />
                   <button className={`absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 ${activeColor.bg} text-white rounded-lg flex items-center justify-center`}>

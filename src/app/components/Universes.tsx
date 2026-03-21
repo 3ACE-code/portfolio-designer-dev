@@ -106,7 +106,7 @@ export function Universes() {
             </Link>
           </motion.div>
 
-          {/* Card 3: STARTUP & AI */}
+          {/* Card 3: STARTUP & DIGITAL PRODUCTS */}
           <motion.div variants={itemVariants} className="h-full">
             <Link to="/portfolio#startup" className="group block relative bg-gradient-to-br from-white to-zinc-50 rounded-3xl p-8 border border-zinc-200 shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)] transition-all duration-500 overflow-hidden flex flex-col h-full backdrop-blur-md">
               {/* Soft tech gradient */}
@@ -121,7 +121,7 @@ export function Universes() {
               </div>
               
               <h3 className="text-2xl font-semibold mb-4 text-zinc-900">
-                STARTUP & AI
+                STARTUP & DIGITAL PRODUCTS
               </h3>
               
               <p className="text-zinc-500 leading-relaxed mb-8 flex-grow">

@@ -39,7 +39,7 @@ export function Hero() {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-zinc-600 max-w-xl leading-relaxed">
-            Nowoczesne doświadczenia cyfrowe skrojone pod Twój biznes. Szybkość AI połączona z precyzją rzemieślnika.
+            Nowoczesne doświadczenia cyfrowe skrojone pod Twój biznes. Szybki proces realizacji połączony z precyzją rzemieślnika.
           </p>
 
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-4 pt-2 sm:pt-4">

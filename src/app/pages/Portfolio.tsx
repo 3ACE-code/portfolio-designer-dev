@@ -36,10 +36,10 @@ export function Portfolio() {
     },
     {
       id: "startup",
-      title: "STARTUP & AI",
+      title: "STARTUP & DIGITAL PRODUCTS",
       category: "Startup / SaaS",
       icon: <Cpu size={24} className="text-blue-500" />,
-      description: "Zaawansowany panel analityczny (Dashboard) zaprojektowany z myślą o ergonomii pracy z dużą ilością danych. Czysty, przejrzysty interfejs wspomagany asystentem AI, pozwalający na błyskawiczne generowanie raportów i analiz biznesowych.",
+      description: "Zaawansowany panel analityczny (Dashboard) zaprojektowany z myślą o ergonomii pracy z dużą ilością danych. Czysty, przejrzysty interfejs z inteligentnymi mechanizmami raportowania, pozwalający na błyskawiczne generowanie analiz biznesowych.",
       features: ["Wizualizacja danych", "Czat AI", "Złożona Architektura Panelu"],
       image: "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNoJTIwc3RhcnR1cCUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NzQxMjU4NjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       link: "/universe/startup",

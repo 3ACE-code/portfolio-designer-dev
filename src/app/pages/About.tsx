@@ -19,7 +19,7 @@ export function About() {
     {
       icon: <Settings2 className="text-[#00F0FF]" size={22} />,
       title: "Optymalizacja Procesów",
-      desc: "Skrócony czas wdrożenia dzięki automatyzacji i precyzyjnemu planowaniu."
+      desc: "Skrócony czas wdrożenia dzięki dopracowanemu workflow i precyzyjnemu planowaniu."
     },
     {
       icon: <MousePointer2 className="text-[#00F0FF]" size={22} />,
@@ -46,10 +46,10 @@ export function About() {
           
           <div className="space-y-6 text-base sm:text-lg text-zinc-600 mb-12 leading-relaxed max-w-2xl font-light">
             <p>
-              Specjalizuję się w dostarczaniu kompleksowych rozwiązań cyfrowych, gdzie granica między estetyką a technologią zaciera się. Moje podejście opiera się na zaawansowanej optymalizacji workflow oraz wykorzystaniu najnowocześniejszych narzędzi wspomagających proces twórczy.
+              Specjalizuję się w dostarczaniu kompleksowych rozwiązań cyfrowych, gdzie granica między estetyką a technologią zaciera się. Moje podejście opiera się na dopracowanym workflow projektowo-wdrożeniowym oraz wykorzystaniu nowoczesnych narzędzi przyspieszających realizację.
             </p>
             <p>
-              Dzięki integracji Figmy z ekosystemem Visual Studio Code, tworzę produkty, które są natychmiast gotowe do skalowania. Każdy piksel ma swoje uzasadnienie, a każda linia kodu jest pisana z myślą o wydajności i przyszłym rozwoju Twojego biznesu. Nie dostarczam tylko stron – buduję cyfrowe fundamenty.
+              Dzięki ścisłemu połączeniu etapu projektowego i developmentu tworzę produkty, które są od początku gotowe do skalowania. Każdy piksel ma swoje uzasadnienie, a każda linia kodu jest pisana z myślą o wydajności i przyszłym rozwoju Twojego biznesu. Nie dostarczam tylko stron - buduję cyfrowe fundamenty.
             </p>
           </div>
 
