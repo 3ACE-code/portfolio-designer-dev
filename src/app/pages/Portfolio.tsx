@@ -67,7 +67,7 @@ export function Portfolio() {
             transition={shouldReduceMotion ? undefined : { delay: 0.2 }}
             className="text-base sm:text-lg text-zinc-600 leading-relaxed"
           >
-            Trzy projekty, trzy zupełnie różne wyzwania. E-commerce, interfejsy gamingowe, zaawansowane narzędzia analityczne. Każdy pokazuje inny aspekt tego, co robię.
+            Trzy projekty, każdy z innym wyzwaniem. E-commerce, interfejsy gamingowe, zaawansowane narzędzia analityczne. Zobacz jak je realizuję.
           </motion.p>
         </div>
 
