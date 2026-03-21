@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router";
 
 export function Navbar() {
@@ -83,6 +83,14 @@ export function Navbar() {
           >
             O mnie
           </Link>
+          <Link
+            to="/"
+            className={`p-2 rounded-full hover:bg-[#00F0FF]/10 transition-colors ${isLightOnDark ? "text-zinc-100" : "text-zinc-900 dark:text-zinc-100"}`}
+            title="Strona główna"
+            onClick={closeMenu}
+          >
+            <Home size={20} />
+          </Link>
           <a
             href="/#contact"
             onClick={handleContactClick}
@@ -111,7 +119,11 @@ export function Navbar() {
               : "bg-gradient-to-r from-transparent via-zinc-900/20 to-transparent"
         }`}
       />
-
+" className="text-base font-medium flex items-center space-x-2 hover:text-[#00F0FF] transition-colors" onClick={closeMenu}>
+            <Home size={18} />
+            <span>Strona główna</span>
+          </Link>
+          <Link to="/
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div
