@@ -29,7 +29,7 @@ export function Hero() {
         >
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-zinc-100 rounded-full w-fit">
             <Sparkles size={16} className="text-[#00F0FF]" />
-            <span className="text-sm font-medium">Cyfrowy rzemieślnik</span>
+            <span className="text-sm font-medium">Cyfrowy specjalista</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] sm:leading-[1.08]">
@@ -39,7 +39,7 @@ export function Hero() {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-zinc-600 max-w-xl leading-relaxed">
-            Nowoczesne doświadczenia cyfrowe skrojone pod Twój biznes. Szybki proces realizacji połączony z precyzją rzemieślnika.
+            Nowoczesne doświadczenia cyfrowe skrojone pod Twój biznes. Szybki proces realizacji połączony z precyzją specjalisty.
           </p>
 
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-4 pt-2 sm:pt-4">
