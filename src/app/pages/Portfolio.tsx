@@ -67,7 +67,7 @@ export function Portfolio() {
             transition={shouldReduceMotion ? undefined : { delay: 0.2 }}
             className="text-base sm:text-lg text-zinc-600 leading-relaxed"
           >
-            Poniżej znajduje się zestawienie trzech zróżnicowanych ekosystemów cyfrowych. Od e-commerce, przez gaming, aż po zaawansowane narzędzia analityczne. Poznaj moje kompetencje architektoniczne na żywych organizmach.
+            Trzy projekty, trzy zupełnie różne wyzwania. E-commerce, interfejsy gamingowe, zaawansowane narzędzia analityczne. Każdy pokazuje inny aspekt tego, co robię.
           </motion.p>
         </div>
 
