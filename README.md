@@ -1,7 +1,7 @@
 # 🌌 Designer-Dev Portfolio | UI/UX & Full-Stack Architecture
 
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen)
-![Tech](https://img.shields.io/badge/Stack-Next.js%20%7C%20Tailwind%20%7C%20Framer%20Motion-blue)
+![Tech](https://img.shields.io/badge/Stack-React%20%7C%20Vite%20%7C%20Tailwind-blue)
 ![Vibe](https://img.shields.io/badge/Style-Glassmorphism%20%7C%20Cyberpunk-purple)
 
 ### 🚀 Live Preview: [designer-dev.vercel.app](https://designer-dev.vercel.app)
@@ -23,10 +23,10 @@ To interaktywna platforma prezentująca trzy unikalne "Uniwersa" cyfrowe: **E-co
 
 | Warstwa | Technologia |
 | :--- | :--- |
-| **Frontend** | React.js, Next.js (App Router), TypeScript |
-| **Styling** | Tailwind CSS, CSS Modules |
-| **Animations** | Framer Motion (Micro-interactions, Page transitions) |
-| **Deployment** | Vercel (Edge Functions, CI/CD) |
+| **Frontend** | React, Vite, React Router, TypeScript |
+| **Styling** | Tailwind CSS |
+| **Animations** | Framer Motion / Motion |
+| **Deployment** | Vercel |
 | **Design** | Figma (Atomic Design Methodology) |
 
 ---
@@ -45,6 +45,8 @@ Projekt wykorzystuje zaawansowany workflow automatyzacji procesów twórczych, c
 - Skrócenie czasu prototypowania (Figma-to-Code efficiency).
 - Proceduralne generowanie zasobów wizualnych.
 - Modułową strukturę komponentów gotowych do skalowania w większych systemach.
+- Lazy loading podstron i sekcji dla szybszego pierwszego renderu.
+- Konfigurację Vercel pod SPA routing i stabilne odświeżanie podstron.
 
 ---
 

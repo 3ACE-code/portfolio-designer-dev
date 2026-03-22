@@ -14,3 +14,6 @@ coverage/
 
 # Optional local backend experiments (not part of public portfolio)
 server/
+
+# Local generated backup artifacts
+public/*_backup.pdf
