@@ -129,7 +129,7 @@ drawLine(doc, currentY);
 currentY += 15;
 
 doc.fontSize(11).fillColor(white).text('📧 Skontaktuj się ze mną', 40, currentY);
-doc.fontSize(12).fillColor(cyan).font('Helvetica-Bold').text('danielsony28@gmail.com', 40, currentY + 18);
+doc.fontSize(12).fillColor(cyan).font('Helvetica-Bold').text('dev@designer-dev.com', 40, currentY + 18);
 doc.fontSize(10).fillColor(darkGray).font('Helvetica').text('Portfolio: designer-dev.vercel.app', 40, currentY + 35);
 doc.fontSize(8).fillColor(darkGray).text('© 2024 DESIGNER-DEV. Wszystkie prawa zastrzeżone.', 40, currentY + 50);
 

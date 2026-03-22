@@ -181,7 +181,7 @@ doc.strokeOpacity(0.8).lineWidth(0.8).moveTo(66, 786).lineTo(528, 786).stroke(li
 doc.restore();
 
 doc.font('BrandSansBold').fontSize(10).fillColor(white).text('Kontakt', 66, 798);
-doc.font('BrandSansBold').fontSize(10).fillColor(cyan).text('danielsony28@gmail.com', 126, 798, { lineBreak: false });
+doc.font('BrandSansBold').fontSize(10).fillColor(cyan).text('dev@designer-dev.com', 126, 798, { lineBreak: false });
 doc.font('BrandSans').fontSize(8.5).fillColor(subtle).text('designer-dev.vercel.app', 66, 816, { lineBreak: false });
 // doc.font('BrandSans').fontSize(8.5).fillColor(subtle).text('Oferta przygotowana w estetyce premium, zgodnej z identyfikacją strony.', 232, 816);
 
