@@ -15,8 +15,11 @@ export function Footer() {
           <a href="/" className="text-xl font-bold tracking-tighter text-white mb-2 inline-block">
             DESIGNER<span className="text-[#00F0FF]">-</span>DEV
           </a>
-          <p className="text-sm">
-            © 2026 DESIGNER-DEV | Wszystkie prawa zastrzeżone.
+          <p className="text-sm font-medium">
+            © 2026 Designer-Dev. Wszystkie prawa zastrzeżone.
+          </p>
+          <p className="text-sm mt-1">
+            Rozliczenia projektów oraz wystawianie faktur VAT odbywają się za pośrednictwem platformy Useme (bezpieczeństwo transakcji gwarantowane).
           </p>
         </motion.div>
 
