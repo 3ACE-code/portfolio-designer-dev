@@ -9,7 +9,7 @@ export function Universes() {
   const universeCards = [
     {
       id: "ecommerce",
-      title: "Uniwersum E-commerce",
+      title: "Sektor E-commerce",
       description:
         "Butiki Premium i luksusowe sklepy. Skupienie na konwersji i estetyce.",
       icon: ShoppingBag,
@@ -26,7 +26,7 @@ export function Universes() {
     },
     {
       id: "gaming",
-      title: "Uniwersum Gamingowe",
+      title: "Sektor Gaming",
       description:
         "Interfejsy dla graczy, platformy e-sportowe i HUDy. Agresywny, nowoczesny design.",
       icon: Gamepad2,
@@ -43,7 +43,7 @@ export function Universes() {
     },
     {
       id: "startup",
-      title: "Uniwersum Startup",
+      title: "Sektor Startup",
       description:
         "Dashboardy, aplikacje AI i nowoczesny software. Czysta technologia i skalowalność.",
       icon: Cpu,
@@ -124,7 +124,7 @@ export function Universes() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl"
           >
-            Wybierz swoje <span className="text-[#00F0FF]">uniwersum</span>
+            Wybierz swój <span className="text-[#00F0FF]">sektor</span>
           </motion.h2>
           <motion.p 
             initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
