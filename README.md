@@ -4,7 +4,7 @@
 ![Tech](https://img.shields.io/badge/Stack-React%20%7C%20Vite%20%7C%20Tailwind-blue)
 ![Vibe](https://img.shields.io/badge/Style-Glassmorphism%20%7C%20Cyberpunk-purple)
 
-### 🚀 Live Preview: [designer-dev.vercel.app](https://designer-dev.vercel.app)
+### 🚀 Live Preview: **[www.designer-dev.com](https://www.designer-dev.com)**
 
 ---
 
@@ -53,8 +53,8 @@ Projekt wykorzystuje zaawansowany workflow automatyzacji procesów twórczych, c
 ## 📬 Kontakt
 
 Masz wizję, która potrzebuje nowoczesnej oprawy?
-- **Email:** [dev@designer-dev.com](mailto:dev@designer-dev.com)
-- **Portfolio:** [designer-dev.vercel.app](https://designer-dev.vercel.app)
+* **Email:** [dev@designer-dev.com](mailto:dev@designer-dev.com)
+* **Website:** [designer-dev.com](https://www.designer-dev.com)
 
 ---
 
