@@ -181,7 +181,7 @@ export function Universes() {
                   <span
                     className={`mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-transparent px-6 py-3 text-sm font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-300 group-hover:translate-x-1 group-hover:border-transparent group-hover:bg-gradient-to-r group-hover:shadow-[0_14px_36px_rgba(0,0,0,0.45)] ${card.buttonText} ${card.buttonFill}`}
                   >
-                    Eksploruj
+                    Wejdź do sektora
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
                   </span>
                 </Link>

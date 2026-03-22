@@ -48,7 +48,7 @@ export function Hero() {
               onClick={handleExploreClick}
               className="group inline-flex w-full sm:w-auto items-center justify-center space-x-2 px-8 py-4 bg-zinc-900 text-white rounded-full font-semibold hover:bg-[#00F0FF] hover:text-black transition-all duration-300 shadow-lg hover:shadow-[#00F0FF]/50"
             >
-              <span>Eksploruj moje uniwersa</span>
+              <span>Eksploruj moje sektory</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
