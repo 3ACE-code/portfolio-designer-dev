@@ -1,115 +1,48 @@
 import React from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Send, Mail, User, MessageSquare } from "lucide-react";
-import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
-type DiscordPayload = {
-  name: string;
-  email: string;
-  message: string;
-};
+const EMAILJS_SERVICE_ID = "service_9llexhp";
+const EMAILJS_TEMPLATE_ID = "template_jylbovh";
+const EMAILJS_PUBLIC_KEY = "AIMEyWbZhPugMsBOh";
+
+type SubmitStatus = "idle" | "success" | "error";
 
 export function Contact() {
   const [isSending, setIsSending] = React.useState(false);
-  const toastId = "contact-form-status";
-  const discordWebhookUrl = String(import.meta.env.VITE_DISCORD_WEBHOOK_URL || "").trim();
+  const [submitStatus, setSubmitStatus] = React.useState<SubmitStatus>("idle");
   const shouldReduceMotion = useReducedMotion();
-
-  const notifyDiscordWebhook = async ({ name, email, message }: DiscordPayload) => {
-    if (!discordWebhookUrl) {
-      return;
-    }
-
-    const safeMessage = message.length > 600 ? `${message.slice(0, 600)}...` : message;
-    const payload = {
-      content: "Nowa wiadomosc z formularza kontaktowego",
-      embeds: [
-        {
-          title: "Nowy kontakt ze strony",
-          color: 61695,
-          fields: [
-            { name: "Nadawca", value: name },
-            { name: "Email", value: email },
-            { name: "Wiadomosc", value: safeMessage },
-          ],
-        },
-      ],
-    };
-
-    try {
-      await fetch(discordWebhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-    } catch {
-      console.warn("Discord webhook notification failed.");
-    }
-  };
+  const formRef = React.useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (isSending) {
-      return;
-    }
+    if (isSending) return;
 
     const formData = new FormData(e.currentTarget);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
+    const from_name = String(formData.get("name") || "").trim();
+    const reply_to = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
 
-    if (!name || !email || !message) {
-      toast.error("Uzupełnij wszystkie pola formularza.");
-      return;
-    }
+    if (!from_name || !reply_to || !message) return;
 
     setIsSending(true);
-    toast.loading("Wysylanie wiadomosci...", { id: toastId });
+    setSubmitStatus("idle");
+
+    const templateParams = { from_name, reply_to, message };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello@designer-dev.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-          _subject: `Nowa wiadomosc ze strony od: ${name}`,
-          _template: "table",
-        }),
-      });
-
-      const isJsonResponse = response.headers
-        .get("content-type")
-        ?.includes("application/json");
-      const result = isJsonResponse
-        ? await response.json().catch(() => null)
-        : null;
-      const successFlag = result?.success;
-      const isSuccessResponse =
-        response.ok &&
-        successFlag !== false &&
-        successFlag !== "false";
-
-      if (!isSuccessResponse) {
-        throw new Error("Nie udalo sie wyslac formularza.");
-      }
-
-      void notifyDiscordWebhook({ name, email, message });
-      toast.success("Pomyslnie wyslano wiadomosc.", { id: toastId });
-      e.currentTarget.reset();
-    } catch (error) {
-      if (error instanceof TypeError) {
-        toast.success("Wiadomosc zostala wyslana. Sprawdz skrzynke za chwile.", { id: toastId });
-      } else {
-        toast.error("Wysylka nie powiodla sie. Sprobuj ponownie za chwile.", { id: toastId });
-      }
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      setSubmitStatus("success");
+      formRef.current?.reset();
+    } catch {
+      setSubmitStatus("error");
     } finally {
       setIsSending(false);
     }
@@ -160,63 +93,92 @@ export function Contact() {
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#00F0FF]/20 blur-[50px] rounded-full"></div>
             
-            <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-zinc-400">Imię i nazwisko</label>
-                <div className="relative">
-                  <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500" />
-                  <input 
-                    name="name"
-                    type="text" 
-                    autoComplete="name"
-                    placeholder="Jan Kowalski"
-                    required
-                    className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700"
-                  />
-                </div>
-              </div>
+            <AnimatePresence mode="wait">
+              {submitStatus === "success" ? (
+                <motion.div
+                  key="success"
+                  initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -24 }}
+                  transition={{ duration: 0.5 }}
+                  className="relative z-10 flex flex-col items-center justify-center py-16 text-center"
+                >
+                  <p className="text-2xl font-bold" style={{ color: "#00f2ff" }}>
+                    🚀 Wiadomość wysłana! Odpowiem wkrótce.
+                  </p>
+                </motion.div>
+              ) : (
+                <motion.div key="form" initial={false}>
+                  <form ref={formRef} className="space-y-6 relative z-10" onSubmit={handleSubmit}>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-zinc-400">Imię i nazwisko</label>
+                      <div className="relative">
+                        <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500" />
+                        <input 
+                          name="name"
+                          type="text" 
+                          autoComplete="name"
+                          placeholder="Jan Kowalski"
+                          required
+                          className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700"
+                        />
+                      </div>
+                    </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-zinc-400">Adres e-mail</label>
-                <div className="relative">
-                  <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500" />
-                  <input 
-                    name="email"
-                    type="email" 
-                    autoComplete="email"
-                    inputMode="email"
-                    placeholder="jan@example.com"
-                    required
-                    className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700"
-                  />
-                </div>
-              </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-zinc-400">Adres e-mail</label>
+                      <div className="relative">
+                        <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500" />
+                        <input 
+                          name="email"
+                          type="email" 
+                          autoComplete="email"
+                          inputMode="email"
+                          placeholder="jan@example.com"
+                          required
+                          className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700"
+                        />
+                      </div>
+                    </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-zinc-400">Twoja wiadomość</label>
-                <div className="relative">
-                  <MessageSquare size={18} className="absolute left-4 top-4 text-zinc-500" />
-                  <textarea 
-                    name="message"
-                    rows={4}
-                    autoComplete="off"
-                    placeholder="Opowiedz mi o swoim projekcie..."
-                    required
-                    className="w-full min-h-32 bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700 resize-y"
-                  ></textarea>
-                </div>
-              </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-zinc-400">Twoja wiadomość</label>
+                      <div className="relative">
+                        <MessageSquare size={18} className="absolute left-4 top-4 text-zinc-500" />
+                        <textarea 
+                          name="message"
+                          rows={4}
+                          autoComplete="off"
+                          placeholder="Opowiedz mi o swoim projekcie..."
+                          required
+                          className="w-full min-h-32 bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#00F0FF] focus:ring-1 focus:ring-[#00F0FF] transition-all placeholder:text-zinc-700 resize-y"
+                        ></textarea>
+                      </div>
+                    </div>
 
-              <button 
-                type="submit"
-                disabled={isSending}
-                className="w-full bg-white text-zinc-950 font-bold py-4 rounded-xl flex items-center justify-center space-x-2 hover:bg-[#00F0FF] transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                <span>{isSending ? "Wysyłanie..." : "Wyślij wiadomość"}</span>
-                <Send size={18} />
-              </button>
-            </form>
-          </motion.div>
+                    <button 
+                      type="submit"
+                      disabled={isSending}
+                      className="w-full bg-white text-zinc-950 font-bold py-4 rounded-xl flex items-center justify-center space-x-2 hover:bg-[#00F0FF] transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      <span>{isSending ? "Wysyłanie..." : "Wyślij wiadomość"}</span>
+                      <Send size={18} />
+                    </button>
+                  </form>
+
+                  {submitStatus === "error" && (
+                    <motion.p
+                      initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="mt-5 text-center text-sm font-medium text-red-400"
+                    >
+                      Ups! Coś przerwało połączenie. Spróbuj ponownie.
+                    </motion.p>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>          </motion.div>
         </div>
       </div>
     </section>

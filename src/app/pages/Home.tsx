@@ -2,6 +2,7 @@ import React from "react";
 import { Hero } from "../components/Hero";
 import { Universes } from "../components/Universes";
 import { Process } from "../components/Process";
+import { Pricing } from "../components/Pricing";
 import { Contact } from "../components/Contact";
 
 export function Home() {
@@ -10,6 +11,7 @@ export function Home() {
       <Hero />
       <Universes />
       <Process />
+      <Pricing />
       <Contact />
     </div>
   );
