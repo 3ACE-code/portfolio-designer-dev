@@ -51,7 +51,7 @@ Projekt wykorzystuje zaawansowany workflow automatyzacji procesów twórczych, c
 ## 📬 Kontakt
 
 Masz wizję, która potrzebuje nowoczesnej oprawy?
-- **Email:** [hello@designer-dev.com](mailto:hello@designer-dev.com)
+- **Email:** [hello@designer-dev.com](mailto:danielsony28@gmail.com)
 - **Portfolio:** [designer-dev.vercel.app](https://designer-dev.vercel.app)
 
 ---
