@@ -41,7 +41,8 @@ export function Contact() {
       );
       setSubmitStatus("success");
       formRef.current?.reset();
-    } catch {
+    } catch (err) {
+      console.error("[EmailJS] send error:", err);
       setSubmitStatus("error");
     } finally {
       setIsSending(false);
