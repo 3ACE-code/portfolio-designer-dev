@@ -3,9 +3,9 @@ import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Send, Mail, User, MessageSquare } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
-const EMAILJS_SERVICE_ID = "service_9llexhp";
-const EMAILJS_TEMPLATE_ID = "template_jylbovh";
-const EMAILJS_PUBLIC_KEY = "AIMEyWbZhPugMsBOh";
+const EMAILJS_SERVICE_ID = "service_akpdmax";
+const EMAILJS_TEMPLATE_ID = "template_ysyanyk";
+const EMAILJS_PUBLIC_KEY = "PaY4skG7NkjW88Kqs";
 
 type SubmitStatus = "idle" | "success" | "error";
 
