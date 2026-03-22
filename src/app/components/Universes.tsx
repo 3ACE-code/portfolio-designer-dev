@@ -232,9 +232,6 @@ export function Universes() {
             <a href="https://www.linkedin.com/in/designer-dev/" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">
               LinkedIn
             </a>
-            <a href="https://discord.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">
-              Discord
-            </a>
           </div>
         </footer>
       </div>
