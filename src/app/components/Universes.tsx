@@ -229,7 +229,7 @@ export function Universes() {
 
           <p className="mt-8 text-sm text-zinc-400">dev@designer-dev.com</p>
           <div className="mt-4 flex items-center justify-center gap-8 text-xs tracking-[0.16em] uppercase text-zinc-500">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">
+            <a href="https://www.linkedin.com/in/designer-dev/" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">
               LinkedIn
             </a>
             <a href="https://discord.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">

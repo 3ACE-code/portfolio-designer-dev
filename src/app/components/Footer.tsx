@@ -44,7 +44,9 @@ export function Footer() {
             <Behance size={20} />
           </a>
           <a 
-            href="#" 
+            href="https://www.linkedin.com/in/designer-dev/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-[#00F0FF] hover:border-[#00F0FF] transition-all duration-300 shadow-[0_0_10px_rgba(0,240,255,0)] hover:shadow-[0_0_15px_rgba(0,240,255,0.4)]"
             aria-label="LinkedIn"
           >
