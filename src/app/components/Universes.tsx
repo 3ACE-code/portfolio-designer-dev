@@ -227,7 +227,7 @@ export function Universes() {
             Napisz do mnie
           </a>
 
-          <p className="mt-8 text-sm text-zinc-400">hello@designer-dev.com</p>
+          <p className="mt-8 text-sm text-zinc-400">danielsony28@gmail.com</p>
           <div className="mt-4 flex items-center justify-center gap-8 text-xs tracking-[0.16em] uppercase text-zinc-500">
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-zinc-300">
               LinkedIn

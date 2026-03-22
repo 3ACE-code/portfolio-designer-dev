@@ -16,6 +16,33 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) {
+            return undefined
+          }
+
+          const normalizedId = id.replace(/\\/g, '/')
+
+          if (normalizedId.includes('/motion/')) {
+            return 'motion'
+          }
+
+          if (normalizedId.includes('/@emailjs/')) {
+            return 'emailjs'
+          }
+
+          if (normalizedId.includes('/lucide-react/')) {
+            return 'icons'
+          }
+
+          return undefined
+        },
+      },
+    },
+  },
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],

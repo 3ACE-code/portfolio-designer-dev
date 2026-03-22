@@ -77,7 +77,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500">Napisz do mnie</p>
-                  <p className="font-medium text-white">hello@designer-dev.com</p>
+                  <p className="font-medium text-white">danielsony28@gmail.com</p>
                 </div>
               </div>
             </div>
